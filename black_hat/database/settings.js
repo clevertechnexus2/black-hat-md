@@ -64,7 +64,7 @@ const DEFAULT_SETTINGS = {
     NEWSLETTER_JID: "120363422524788798@newsletter",
     GC_JID: "FHT9hXCbu1z4XiPbn7HKMw",
     NEWSLETTER_URL: "https://whatsapp.com/channel/0029Vb73SRl1CYoLWtyr4u1X",
-    BOT_REPO: "clevertechnexus/black-hat-md",
+    BOT_REPO: "clevertechnexus2/black-hat-md",
     PACK_NAME: "𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃",
     PACK_AUTHOR: "𝑨𝒏𝒐𝒏𝒚𝒎𝒐𝒖𝒔 𝒖𝒔𝒆𝒓🥷",
     SUDO_NUMBERS: "",
