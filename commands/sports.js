@@ -90,7 +90,7 @@ gmd(
       txt += `╰━━━━━━━━━━━━━━━⬣\n\n`;
 
       data.result.forEach((match, i) => {
-        txt += `╭━━━━━━ *Match ${i + 1}* ━━━━━━❍\n`;
+        txt += `╭━ *Match ${i + 1}* ━━━❍\n`;
         txt += `┃ ⚽ *${match.match}*\n`;
         txt += `┃ 🏆 ${match.league}\n`;
         txt += `┃ 🕐 ${match.time}\n`;
