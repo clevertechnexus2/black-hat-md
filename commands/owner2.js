@@ -9,7 +9,6 @@ const { S_WHATSAPP_NET } = require("gifted-baileys");
 const { Jimp } = require("jimp");
 const path = require("path");
 const moment = require("moment-timezone");
-const { sendButtons } = require("gifted-btns");
 const {
   groupCache,
   getGroupMetadata,
@@ -286,28 +285,9 @@ gmd(
   }
 );
 
-// ================== NEWSLETTER COMMAND (FULL PRO) ==================
-
-let LAST_CHANNEL_LINK = "";
-
-// 🔍 Extract channel code
-function extractCode(link) {
-  try {
-    let clean = link.trim().split("?")[0].split("#")[0];
-
-    const match = clean.match(/channel\/([A-Za-z0-9]+)/i);
-    if (match) return match[1];
-
-    if (/^[A-Za-z0-9]+$/.test(clean)) return clean;
-
-    return null;
-  } catch {
-    return null;
-  }
-}
-
-
 // ================== NEWSLETTER COMMAND (PRO + BUTTONS) ==================
+
+const { sendButtons } = require("gifted-btns");
 
 function extractCode(link) {
   try {
@@ -355,27 +335,27 @@ gmd(
         return reply("❌ Channel not found");
       }
 
+      const channelId = meta.id || code;
       const channelLink = `https://whatsapp.com/channel/${code}`;
 
-      // 🧠 CLEAN TEXT (ONLY NAME + ID)
-      let msg = `╭══〘📰 NEWSLETTER INFO〙═⊷\n\n`;
-      msg += `🆔 *ID:* ${meta.id || "N/A"}\n`;
-      msg += `\n╰━━━━━━━━━━━━━━━⬣`;
+      let msg =
+`╭══〘〘 *📰 NEWSLETTER* 〙〙═⊷
+┃ ID: ${channelId}
+╰━━━━━━━━━━━━━━━⬣`;
 
       await react("✅");
 
-      // 🚀 BUTTON MESSAGE (ONLY COPY)
       await sendButtons(Gifted, from, {
-        title: `${botName || "BOT"} *NEWSLETTER INFO*`,
+        title: "📰 NEWSLETTER INFO",
         text: msg,
-        footer: ${botFooter} || "Powered by anonymous user",
+        footer: botFooter || botName || "Bot",
 
         buttons: [
           {
             name: "cta_copy",
             buttonParamsJson: JSON.stringify({
-              display_text: "📋 Copy Channel ID",
-              copy_code: meta.id || code,
+              display_text: "📋 Copy ID",
+              copy_code: channelId,
             }),
           },
           {
