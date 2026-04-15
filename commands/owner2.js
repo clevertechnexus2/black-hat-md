@@ -284,3 +284,182 @@ gmd(
     }
   }
 );
+
+// ================== NEWSLETTER COMMAND (FULL PRO) ==================
+
+let LAST_CHANNEL_LINK = "";
+
+// 🔍 Extract channel code
+function extractCode(link) {
+  try {
+    let clean = link.trim().split("?")[0].split("#")[0];
+
+    const match = clean.match(/channel\/([A-Za-z0-9]+)/i);
+    if (match) return match[1];
+
+    if (/^[A-Za-z0-9]+$/.test(clean)) return clean;
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+// ================== MAIN COMMAND ==================
+
+gmd(
+  {
+    pattern: "nl",
+    category: "owner",
+    react: "📰",
+    description: "Get WhatsApp channel info",
+  },
+  async (from, Gifted, conText) => {
+    const { reply, react, body } = conText;
+
+    try {
+      let text = body.replace(".nl", "").trim();
+
+      if (!text) {
+        return reply("❌ Example:\n.nl https://whatsapp.com/channel/xxxx");
+      }
+
+      const code = extractCode(text);
+
+      if (!code) {
+        return reply("❌ Invalid channel link");
+      }
+
+      await react("⏳");
+
+      let meta;
+      try {
+        meta = await Gifted.newsletterMetadata("invite", code);
+      } catch {
+        return reply("❌ newsletterMetadata failed (update Baileys)");
+      }
+
+      if (!meta) {
+        return reply("❌ Channel not found");
+      }
+
+      let channelLink = `https://whatsapp.com/channel/${code}`;
+      LAST_CHANNEL_LINK = channelLink;
+
+      // 🧠 FORMAT UI
+      let msg = `╭━━〔 📰 NEWSLETTER INFO 〕━━⬣\n\n`;
+      msg += `📛 *Name:* ${meta.name || "N/A"}\n`;
+      msg += `🆔 *ID:* ${meta.id || "N/A"}\n`;
+
+      if (meta.description) {
+        msg += `📝 *Description:* ${meta.description}\n`;
+      }
+
+      if (meta.subscriberCount !== undefined) {
+        msg += `👥 *Subscribers:* ${meta.subscriberCount.toLocaleString()}\n`;
+      }
+
+      if (meta.creationTime) {
+        const date = new Date(meta.creationTime * 1000);
+        msg += `📅 *Created:* ${date.toLocaleDateString()}\n`;
+      }
+
+      msg += `\n🔗 _${channelLink}_`;
+      msg += `\n╰━━━━━━━━━━━━━━━━━⬣`;
+
+      await react("✅");
+
+      // 📦 MESSAGE CONTENT
+      let content = {};
+
+      if (meta.image) {
+        content = {
+          image: { url: meta.image },
+          caption: msg,
+        };
+      } else {
+        content = {
+          text: msg,
+        };
+      }
+
+      // 🚀 SEND WITH BUTTONS
+      await Gifted.sendMessage(from, {
+        ...content,
+
+        buttons: [
+          {
+            buttonId: "copy_link",
+            buttonText: { displayText: "📋 Copy Link" },
+            type: 1,
+          },
+          {
+            buttonId: "open_link",
+            buttonText: { displayText: "🔗 Open Channel" },
+            type: 1,
+          },
+        ],
+
+        headerType: 4,
+
+        contextInfo: {
+          forwardingScore: 999,
+          isForwarded: true,
+
+          forwardedNewsletterMessageInfo: {
+            newsletterJid: meta.id,
+            newsletterName: meta.name,
+            serverMessageId: Math.floor(Math.random() * 999999),
+          },
+
+          externalAdReply: {
+            title: meta.name,
+            body: "Tap to join WhatsApp Channel",
+            sourceUrl: channelLink,
+            mediaType: 1,
+            renderLargerThumbnail: true,
+          },
+        },
+      });
+
+    } catch (err) {
+      console.error(err);
+      await react("❌");
+      reply("❌ Failed to fetch channel info");
+    }
+  }
+);
+
+// ================== BUTTON HANDLERS ==================
+
+gmd(
+  {
+    pattern: "copy_link",
+    dontAddCommandList: true,
+  },
+  async (from, Gifted, conText) => {
+    const { reply } = conText;
+
+    if (!LAST_CHANNEL_LINK) {
+      return reply("❌ No channel link saved");
+    }
+
+    reply(`📋 Copy this link:\n${LAST_CHANNEL_LINK}`);
+  }
+);
+
+gmd(
+  {
+    pattern: "open_link",
+    dontAddCommandList: true,
+  },
+  async (from, Gifted, conText) => {
+    const { reply } = conText;
+
+    if (!LAST_CHANNEL_LINK) {
+      return reply("❌ No channel link saved");
+    }
+
+    reply(`🔗 Open channel:\n${LAST_CHANNEL_LINK}`);
+  }
+);
