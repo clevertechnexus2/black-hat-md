@@ -10,7 +10,7 @@ gmd({
     category: "uploader",
     description: "Upload any file to blackhatcdn",
 }, async (from, Gifted, conText) => {
-    await handleUpload(from, Gifted, conText, 'blackhatcdn');
+    await handleUpload(from, Gifted, conText, 'giftedcdn');
 });
 
 gmd({
