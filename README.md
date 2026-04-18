@@ -54,11 +54,11 @@
 
 &nbsp;&nbsp;&nbsp;
 
-<a href="https://session1.clevertech.qzz.io" target="_blank">
+<a href="https://pair.clevertechnexus.qzz.io" target="_blank">
   <img src="https://img.shields.io/badge/PAIRING_CODE_SERVER_2-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Server 2"/>
 </a>
 
-<a href="https://session1.clevertechnexus.qzz.io" target="_blank">
+<a href="https://pair1.clevertechnexus.qzz.io" target="_blank">
   <img src="https://img.shields.io/badge/PAIRING_CODE_SERVER_3-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Server 3"/>
 </a>
 
