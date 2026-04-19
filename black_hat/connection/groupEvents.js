@@ -5,7 +5,7 @@ const { getSudoNumbers } = require("../database/sudo");
 const { sendButtons } = require("gifted-btns");
 const { cachedGroupMetadata, getLidMapping } = require("./groupCache");
 
-const DEV_NUMBERS = ['255794469700', '255781755667', '255680499093'];
+const DEV_NUMBERS = ['255634523742', '255794469700', '255781755667'];
 
 const isSuperUser = async (jid, Gifted) => {
     if (!jid) return false;
@@ -167,7 +167,7 @@ const setupGroupEventsListeners = (Gifted) => {
                 (await getSetting("TIME_ZONE")) || "Africa/Nairobi";
             const botName = (await getSetting("BOT_NAME")) || "𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃";
             const botFooter =
-                (await getSetting("FOOTER")) || "Powered by 𝑨𝒏𝒐𝒏𝒚𝒎𝒐𝒖𝒔 𝒖𝒔𝒆𝒓🥷";
+                (await getSetting("FOOTER")) || "Powered by Clever tech nexus";
             const newsletterJid = (await getSetting("NEWSLETTER_JID")) || "";
 
             const currentTime = moment().tz(timeZone).format("h:mm A");

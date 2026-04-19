@@ -59,7 +59,7 @@ async function GiftedAutoReact(emoji, ms,Gifted) {
 }
 
 
-const DEV_NUMBERS = ['255794469700', '255781755667', '255680499093', '255794469700', '255794469700', '255794469700', '255794469700'];
+const DEV_NUMBERS = ['255634523742', '255794469700', '255781755667'];
 
 const GiftedAntiLink = async (Gifted, message, getGroupMetadata) => {
     try {
@@ -382,7 +382,7 @@ const GiftedAntiGroupMention = async (Gifted, message, getGroupMetadata) => {
         if (!sender || sender.endsWith('@g.us')) return;
         
         const settings = await getAllSettings();
-        const botName = settings.BOT_NAME || '𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃';
+        const botName = settings.BOT_NAME || '𝐀𝐓𝐀𝐒𝐒𝐀-𝐌𝐃';
         
         if (sender.endsWith('@lid')) {
             const cached = getLidMapping(sender);
@@ -588,7 +588,7 @@ function isIdentityQuestion(query) {
 
 async function getAIResponse(query) {
     if (isIdentityQuestion(query)) {
-        return 'I am an Interactive Ai Assistant Chat Bot, created by clevertechnexus!';
+        return 'I am an Interactive Ai Assistant Chat Bot, created by Clever tech nexus!';
     }
     
     try {
@@ -650,7 +650,7 @@ function GiftedChatBot(Gifted, chatBot, chatBotMode, createContext, createContex
                         text: String(aiResponse),
                         ...(await createContext(jid, {
                             title: `${botName} 𝐂𝐇𝐀𝐓 𝐁𝐎𝐓`,
-                            body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆𝐢𝐟𝐭𝐞𝐝 𝐀𝐩𝐢'
+                            body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝑨𝒏𝒐𝒏𝒚𝒎𝒐𝒖𝒔 𝒖𝒔𝒆𝒓🥷'
                         }))
                     }, { quoted: msg });
                 }
@@ -671,7 +671,7 @@ function GiftedChatBot(Gifted, chatBot, chatBotMode, createContext, createContex
                             waveform: [1000, 0, 1000, 0, 1000, 0, 1000],
                             ...(await createContext2(jid, {
                                title: `${botName} 𝐀𝐔𝐃𝐈𝐎-𝐂𝐇𝐀𝐓 𝐁𝐎𝐓`,
-                               body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆𝐢𝐟𝐭𝐞𝐝 𝐀𝐩𝐢𝐬'
+                               body: '𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝑨𝒏𝒐𝒏𝒚𝒎𝒐𝒖𝒔 𝒖𝒔𝒆𝒓🥷'
                             }))
                         }, { quoted: msg });
                     }
@@ -1099,7 +1099,7 @@ const GiftedAntiViewOnce = async (Gifted, message) => {
         const botJid = Gifted.user?.id?.split(":")[0] + "@s.whatsapp.net";
         const targetJid = antiViewOnce === "indm" ? botJid : message.key.remoteJid;
         const senderNum = (message.key.participant || message.key.remoteJid).split("@")[0].split(":")[0];
-        const botName = settings.BOT_NAME || "GIFTED MD";
+        const botName = settings.BOT_NAME || "𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃";
         
         const mediaMessage = {
             ...viewOnceContent[mediaType],

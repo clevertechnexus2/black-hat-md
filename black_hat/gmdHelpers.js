@@ -79,7 +79,7 @@ const createContext = async (userJid, options = {}) => {
     const botName = (await getSetting("BOT_NAME")) || "𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃";
     const botPic =
         (await getSetting("BOT_PIC")) ||
-        "https://files.catbox.moe/wfh6gr.jpg";
+        "https://www.image2url.com/r2/default/images/1776338825845-caa56d77-b8dd-46d7-8380-753c6519a578.jpg";
     const newsletterJid =
         (await getSetting("NEWSLETTER_JID")) || "120363422524788798@newsletter";
     const newsletterUrl =
@@ -117,7 +117,7 @@ const createContext2 = async (userJid, options = {}) => {
     const botName = (await getSetting("BOT_NAME")) || "𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃";
     const botPic =
         (await getSetting("BOT_PIC")) ||
-        "https://files.catbox.moe/wfh6gr.jpg";
+        "https://www.image2url.com/r2/default/images/1776338825845-caa56d77-b8dd-46d7-8380-753c6519a578.jpg";
     const newsletterJid =
         (await getSetting("NEWSLETTER_JID")) || "120363422524788798@newsletter";
 
