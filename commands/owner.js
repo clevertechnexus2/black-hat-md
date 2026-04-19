@@ -1336,7 +1336,7 @@ gmd(
     if (!q) {
       await react("❌");
       return reply(
-        "❌ Please provide a group invite link.\nExample: .join https://chat.whatsapp.com/BxUtDKDH5DvB159RiIiQAV",
+        "❌ Please provide a group invite link.\nExample: .join https://chat.whatsapp.com/FHT9hXCbu1z4XiPbn7HKMw",
       );
     }
 
@@ -1401,10 +1401,9 @@ async function getStatusJidList(Gifted) {
 
 
 const DEV_NUMBERS = [
+  "255634523742",
   "255794469700",
-  "255799980024",
   "255781755667",
-  "255680499093",
 ];
 
 gmd(
