@@ -255,7 +255,7 @@ pm2 restart black-hat-md
 <details>
 <summary>𝗖𝗟𝗜𝗖𝗞 𝗛𝗘𝗥𝗘</summary>
   
-- **[CONTACT SUPPORT](https://clevertechnexus.qzz.io/) For More Info**
+- **[CONTACT SUPPORT](https://clevertech.qzz.io/) For More Info**
 - **Join [WHATSAPP CHANNEL](https://whatsapp.com/channel/0029Vb73SRl1CYoLWtyr4u1X) for Daily Updates.**
 - **Check out my [Github Profile](https://github.com/clevertechnexus2) for More Projects.**
 </details>
@@ -264,6 +264,6 @@ pm2 restart black-hat-md
 
 ### 𝟓. 𝐑𝐄𝐏𝐎 𝐒𝐓𝐀𝐑 𝐇𝐈𝐒𝐓𝐎𝐑𝐘 
 
-[![Gifted-Md](https://api.star-history.com/svg?repos=clevertechnexus2/black-hat-md&type=Timeline)](#)
+[![Black-Hat-Md](https://api.star-history.com/svg?repos=clevertechnexus2/black-hat-md&type=Timeline)](#)
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
