@@ -50,6 +50,7 @@ const {
     antiStickerHandler,
     createContext,
     createContext2,
+    monospace,
     verifyJidState,
     GiftedPresence,
     GiftedAntiDelete,
@@ -118,6 +119,7 @@ async function resolveRealJid(Gifted, jid) {
     return jid;   // best effort — return original LID so the operation still fires
 }
 
+const { sendButtons } = require("gifted-btns");
 const { SESSION_ID: sessionId } = config;
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -219,36 +221,47 @@ async function startGifted() {
                             const md =
                                 s.MODE === "public" ? "public" : "private";
                             const connectionMsg = `
-*${s.BOT_NAME || d.BOT_NAME} 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃*
+┌─⧭⊷
+├⍟❏ *${(s.BOT_NAME || d.BOT_NAME).toUpperCase()}*
+├❏
+├❏ 🔹 *ᴘʀᴇғɪx*  : *[ ${s.PREFIX || d.PREFIX} ]*
+├❏ 🔹 *ᴘʟᴜɢɪɴs* : *${totalCommands}*
+├❏ 🔹 *ᴍᴏᴅᴇ*    : *${md.toUpperCase()}*
+├❏ 🔹 *ᴏᴡɴᴇʀ*   : *${s.OWNER_NUMBER || d.OWNER_NUMBER}*
+├❏
+├❏ _ʙᴏᴛ ᴍᴀʏ ᴛᴀᴋᴇ sᴏᴍᴇ ғᴇᴡ_
+├❏ _sᴇᴄᴏɴᴅs/ᴍɪɴᴜᴛᴇs ᴛᴏ sʏɴᴄ_
+├❏ _ʙᴇ ғᴏʀᴇ ʙᴇɪɴɢ ʀᴇᴀᴅʏ ᴛᴏ ᴜsᴇ._
+├❏
+├❏ 🥷 _${s.CAPTION || d.CAPTION}_
+└─❏
+`;
+await sendButtons(Gifted, Gifted.user.id, {
+    text: connectionMsg,
 
-𝐏𝐫𝐞𝐟𝐢𝐱       : *[ ${s.PREFIX || d.PREFIX} ]*
-𝐏𝐥𝐮𝐠𝐢𝐧𝐬      : *${totalCommands}*
-𝐌𝐨𝐝𝐞        : *${md}*
-𝐎𝐰𝐧𝐞𝐫       : *${s.OWNER_NUMBER || d.OWNER_NUMBER}*
-𝐓𝐮𝐭𝐨𝐫𝐢𝐚𝐥𝐬     : *${s.YT || d.YT}*
-𝐔𝐩𝐝𝐚𝐭𝐞𝐬      : *${s.NEWSLETTER_URL || d.NEWSLETTER_URL}*
+    buttons: [
+        {
+            name: "cta_url",
+            buttonParamsJson: JSON.stringify({
+                display_text: "📘 Tutorials",
+                url: s.YT || d.YT,
+            }),
+        },
 
-𝐍𝐨𝐭𝐞:  Bot may take some few \nseconds minutes to sync \nbefore being ready to use.
+        {
+            name: "cta_url",
+            buttonParamsJson: JSON.stringify({
+                display_text: "📢 Updates",
+                url:
+                    s.NEWSLETTER_URL ||
+                    d.NEWSLETTER_URL ||
+                    "https://whatsapp.com/channel/0029Vb73SRl1CYoLWtyr4u1X",
+            }),
+        },
+    ],
+});
 
-> *${s.CAPTION || d.CAPTION}*`;
-
-                            await Gifted.sendMessage(
-                                Gifted.user.id,
-                                {
-                                    text: connectionMsg,
-                                    ...(await createContext(
-                                        s.BOT_NAME || d.BOT_NAME,
-                                        {
-                                            title: "BOT INTEGRATED",
-                                            body: "Status: Ready for Use",
-                                        },
-                                    )),
-                                },
-                                {
-                                    disappearingMessagesInChat: true,
-                                    ephemeralExpiration: 300,
-                                },
-                            );
+                            
                         }
                     } catch (err) {
                         console.error("Post-connection setup error:", err);
