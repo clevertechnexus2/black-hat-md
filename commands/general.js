@@ -179,7 +179,7 @@ gmd(
 *🍁 Dᴀᴛᴇ Tᴏᴅᴀʏ:* ${monospace(date)}
 *🎗 Tɪᴍᴇ Nᴏᴡ:* ${monospace(time)}
 
-➮Fᴏᴜɴᴅᴇʀ - clevertechnexus
+➮Fᴏᴜɴᴅᴇʀ - Clever Tech
 ➮Usᴇʀ - ${monospace(pushName)}
 ➮Nᴜᴍ - ${monospace(ownerNumber)} 
 ➮Mᴇᴍᴏʀʏ - ${monospace(ram)}
@@ -277,23 +277,22 @@ gmd(
         (command) => command.pattern && !command.dontAddCommandList,
       ).length;
 
-      let list = `
-╭══〘〘 *${monospace(botName)}* 〙〙═⊷
-│ ✦ *Mᴏᴅᴇ* : ${monospace(botMode)}
-│ ✦ *Pʀᴇғɪx* : [ ${monospace(botPrefix)} ]
-│ ✦ *Usᴇʀ* : ${monospace(pushName)}
-│ ✦ *Pʟᴜɢɪɴs* : ${monospace(totalCommands.toString())}
-│ ✦ *Vᴇʀsɪᴏɴ* : ${monospace(botVersion)}
-│ ✦ *Uᴘᴛɪᴍᴇ* : ${monospace(uptime)}
-│ ✦ *Tɪᴍᴇ Nᴏᴡ* : ${monospace(time)}
-│ ✦ *Dᴀᴛᴇ Tᴏᴅᴀʏ* : ${monospace(date)}
-│ ✦ *Tɪᴍᴇ Zᴏɴᴇ* : ${monospace(timeZone)}
-│ ✦ *Sᴇʀᴠᴇʀ Rᴀᴍ* : ${monospace(ram)}
-╰═════════════════⊷${readmore}\n`;
+      let list = `┏❏ ◈ *${monospace(botName)}* ◈
+│ *𝑴𝒐𝒅𝒆:*  ${monospace(botMode)}
+│ *𝑷𝒓𝒆𝒇𝒊𝒙:*  [ ${monospace(botPrefix)} ]
+│ *𝑼𝒔𝒆𝒓:*  ${monospace(pushName)}
+│ *𝑷𝒍𝒖𝒈𝒊𝒏𝒔:*  ${monospace(totalCommands.toString())}
+│ *𝑽𝒆𝒓𝒔𝒊𝒐𝒏:*  ${monospace(botVersion)}
+│ *𝑼𝒑𝒕𝒊𝒎𝒆:*  ${monospace(uptime)}
+│ *𝑻𝒊𝒎𝒆 𝑵𝒐𝒘:*  ${monospace(time)}
+│ *𝑫𝒂𝒕𝒆 𝑻𝒐𝒅𝒂𝒚:*  ${monospace(date)}
+│ *𝑻𝒊𝒎𝒆.𝒁𝒐𝒏𝒆:*  ${monospace(timeZone)}
+│ *𝑺𝒆𝒓𝒗𝒆𝒓 𝑹𝒂𝒎:*  ${monospace(ram)}
+┗❏\n${readmore}\n`;
 
       commands.forEach((gmd, index) => {
         if (gmd.pattern && gmd.description) {
-          list += `*${index + 1} ${monospace(gmd.pattern)}*\n  ${gmd.description}\n`;
+          list += `_${index + 1} ${monospace(gmd.pattern)}_\n  ${gmd.description}\n`;
         }
       });
 
@@ -394,34 +393,37 @@ gmd(
         categorized[cat].sort((a, b) => a.pattern.localeCompare(b.pattern));
       }
 
-      let header = `╭══〘〘 *${monospace(botName)}* 〙〙═⊷
-┃❍ *Mᴏᴅᴇ:*  ${monospace(botMode)}
-┃❍ *Pʀᴇғɪx:*  [ ${monospace(botPrefix)} ]
-┃❍ *Usᴇʀ:*  ${monospace(pushName)}
-┃❍ *Pʟᴜɢɪɴs:*  ${monospace(totalCommands.toString())}
-┃❍ *Vᴇʀsɪᴏɴ:*  ${monospace(botVersion)}
-┃❍ *Uᴘᴛɪᴍᴇ:*  ${monospace(uptime)}
-┃❍ *Tɪᴍᴇ Nᴏᴡ:*  ${monospace(time)}
-┃❍ *Dᴀᴛᴇ Tᴏᴅᴀʏ:*  ${monospace(date)}
-┃❍ *Tɪᴍᴇ Zᴏɴᴇ:*  ${monospace(timeZone)}
-┃❍ *Sᴇʀᴠᴇʀ Rᴀᴍ:*  ${monospace(ram)}
-╰═════════════════⊷\n${readmore}\n`;
+      let header = `┏❏ ◈ *${monospace(botName)}* ◈
+│ *𝑴𝒐𝒅𝒆:*  ${monospace(botMode)}
+│ *𝑷𝒓𝒆𝒇𝒊𝒙:*  [ ${monospace(botPrefix)} ]
+│ *𝑼𝒔𝒆𝒓:*  ${monospace(pushName)}
+│ *𝑷𝒍𝒖𝒈𝒊𝒏𝒔:*  ${monospace(totalCommands.toString())}
+│ *𝑽𝒆𝒓𝒔𝒊𝒐𝒏:*  ${monospace(botVersion)}
+│ *𝑼𝒑𝒕𝒊𝒎𝒆:*  ${monospace(uptime)}
+│ *𝑻𝒊𝒎𝒆 𝑵𝒐𝒘:*  ${monospace(time)}
+│ *𝑫𝒂𝒕𝒆 𝑻𝒐𝒅𝒂𝒚:*  ${monospace(date)}
+│ *𝑻𝒊𝒎𝒆.𝒁𝒐𝒏𝒆:*  ${monospace(timeZone)}
+│ *𝑺𝒆𝒓𝒗𝒆𝒓 𝑹𝒂𝒎:*  ${monospace(ram)}
+┗❏\n${readmore}\n`;
 
 const formatCategory = (category, gmds) => {
-  const headerLine = `╭━━━━━━━━━━━━━━━⬣ \n`;
-  const categoryTitle  = `┃ *${monospace(category.toUpperCase())}* \n`;
-  const separator  = `┃━━━━━━━━━━━━━━━⬣ \n`;
+ // const headerLine = `┏▣◈ \n`;
+  const categoryTitle  = `╭─❏ ◈ *${monospace(category.toUpperCase())}* ◈ \n`;
+ // const separator  = `│➽🥷 \n`;
   const body = gmds
     .map((gmd) => {
       const prefix = gmd.isBody ? "" : botPrefix;
-      return `┃ ➜ ${monospace(prefix + gmd.pattern)}`;
+      return `├❏ _${monospace(prefix + gmd.pattern)}_`;
     })
     .join("\n");
-  const footer = `╰━━━━━━━━━━━━━━━⬣\n`;
+  const footer = `╰─❏`;
 
   // Badilisha `title` isiyojulikana kwa muunganiko wa headerLine + categoryTitle + separator
-  return `${headerLine}${categoryTitle}${separator}${body}\n${footer}\n`;
+  return `${categoryTitle}${body}\n${footer}\n`;
 };
+
+//{separator}${headerLine}
+
 
       let menu = header;
       for (const category of sortedCategories) {
