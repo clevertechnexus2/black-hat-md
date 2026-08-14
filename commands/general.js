@@ -393,7 +393,7 @@ gmd(
         categorized[cat].sort((a, b) => a.pattern.localeCompare(b.pattern));
       }
 
-      let header = `┏❏ ◈ *${monospace(botName)}* ◈
+      let header = `┏❏ ◈ 『 *${monospace(botName)}*』 ◈
 │ *𝑴𝒐𝒅𝒆:*  ${monospace(botMode)}
 │ *𝑷𝒓𝒆𝒇𝒊𝒙:*  [ ${monospace(botPrefix)} ]
 │ *𝑼𝒔𝒆𝒓:*  ${monospace(pushName)}
@@ -408,7 +408,7 @@ gmd(
 
 const formatCategory = (category, gmds) => {
  // const headerLine = `┏▣◈ \n`;
-  const categoryTitle  = `╭─❏ ◈ *${monospace(category.toUpperCase())}* ◈ \n`;
+  const categoryTitle  = `╭─❏ ◈『 *${monospace(category.toUpperCase())}*』 ◈ \n`;
  // const separator  = `│➽🥷 \n`;
   const body = gmds
     .map((gmd) => {
