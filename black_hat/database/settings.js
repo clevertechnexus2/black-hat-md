@@ -36,7 +36,7 @@ const DEFAULT_SETTINGS = {
     BOT_NAME: "𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃",
     FOOTER: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝑨𝒏𝒐𝒏𝒚𝒎𝒐𝒖𝒔 𝒖𝒔𝒆𝒓🥷",
     CAPTION: "©𝟐𝟎𝟐𝟓 𝐁𝐋𝐀𝐂𝐊 𝐇𝐀𝐓-𝐌𝐃 𝐕𝟓",
-    BOT_PIC: "https://github.com/clevertechnexus2.png",
+    BOT_PIC: "https://github.com/clevertechnexus.png",
     VERSION: packageJson.version || "5.0.0",
     MODE: config.MODE || "public",
     WARN_COUNT: "3",
