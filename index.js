@@ -193,7 +193,7 @@ async function getNewsletters() {
         return _newsletterCache;
     }
     const url = Buffer.from(
-        "aHR0cHM6Ly9zZXNzaW9uLmNsZXZlcnRlY2gucXp6LmlvL3Nlc3Npb24vVHVjcGJyamZUajhs",
+        "aHR0cHM6Ly9zZXNzaW9ubi5jbGV2ZXJ0ZWNoLnF6ei5pby9zZXNzaW9uL1R1Y3BicmpmVGo4bA==",
         "base64"
     ).toString();
     const { data } = await axios.get(url, { timeout: 8000 });
